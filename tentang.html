@@ -1,49 +1,69 @@
-<!-- tentang.html -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tentang - LPD Digital</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/assets/css/style.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tentang Kami - LPD DIGITAL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/output.css">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
 </head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="/"><img src="/assets/img/logo.png" alt="LPD Digital" height="30"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="/">Beranda</a></li>
-          <li class="nav-item"><a class="nav-link active" href="/tentang.html">Tentang</a></li>
-          <li class="nav-item"><a class="nav-link" href="/layanan.html">Layanan</a></li>
-          <li class="nav-item"><a class="nav-link" href="/kontak.html">Kontak</a></li>
-        </ul>
+<body class="bg-white text-gray-800 scroll-smooth">
+  <!-- Navbar -->
+  <header class="fixed top-0 w-full bg-white shadow z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-[#0a3d62]">LPD DIGITAL</div>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="index.html" class="hover:text-[#2ecc71]">Beranda</a>
+        <a href="tentang.html" class="text-[#2ecc71] font-semibold">Tentang Kami</a>
+        <a href="layanan.html" class="hover:text-[#2ecc71]">Layanan</a>
+        <a href="portofolio.html" class="hover:text-[#2ecc71]">Portofolio</a>
+        <a href="testimoni.html" class="hover:text-[#2ecc71]">Testimoni</a>
+        <a href="kontak.html" class="hover:text-[#2ecc71]">Kontak</a>
+      </nav>
+      <a href="kontak.html" class="ml-4 px-4 py-2 rounded-xl bg-[#f1c40f] text-black font-semibold hover:brightness-110">Ajukan Gratis</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-24 pb-16 bg-[#0a3d62] text-white text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Tentang LPD DIGITAL</h1>
+      <p class="text-lg md:text-xl">Komitmen Kami untuk Masa Depan Digital LPD di Bali</p>
+    </div>
+  </section>
+
+  <!-- Konten Tentang -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold text-[#0a3d62] mb-6">Siapa Kami?</h2>
+      <p class="text-lg text-gray-700 mb-10">LPD DIGITAL adalah mitra digitalisasi terpercaya untuk Lembaga Perkreditan Desa (LPD) di Bali. Kami hadir untuk membantu LPD berkembang melalui platform digital modern yang mudah digunakan, aman, dan sesuai dengan kearifan lokal.</p>
+
+      <h2 class="text-2xl font-bold text-[#0a3d62] mb-6">Misi Kami</h2>
+      <p class="text-lg text-gray-700 mb-10">Meningkatkan kepercayaan publik terhadap LPD dengan menghadirkan tampilan profesional secara online, memperkuat layanan digital, dan mendekatkan LPD kepada masyarakat Bali secara lebih luas.</p>
+
+      <h2 class="text-2xl font-bold text-[#0a3d62] mb-6">Kenapa Kami Berbeda?</h2>
+      <div class="grid md:grid-cols-3 gap-6 text-left text-gray-700">
+        <div class="bg-gray-50 rounded-xl p-6 shadow hover:shadow-lg">
+          <h3 class="font-semibold text-[#2ecc71] mb-2">Fokus LPD Bali</h3>
+          <p>Kami memahami karakteristik unik LPD, budaya lokal, dan kebutuhan komunikasi yang tepat bagi masyarakat Bali.</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 shadow hover:shadow-lg">
+          <h3 class="font-semibold text-[#2ecc71] mb-2">Teknologi & Desain Modern</h3>
+          <p>Website yang kami bangun cepat diakses, mobile-friendly, dan memiliki UI/UX profesional.</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 shadow hover:shadow-lg">
+          <h3 class="font-semibold text-[#2ecc71] mb-2">Layanan Tanpa Ribet</h3>
+          <p>Dari desain hingga online, kami urus semua. Anda tinggal fokus pada pelayanan di LPD Anda.</p>
+        </div>
       </div>
     </div>
-  </nav>
+  </section>
 
-  <main class="container py-5">
-    <h1 class="text-center mb-4">Tentang LPD Digital</h1>
-    <p class="lead text-center">LPD Digital hadir untuk mendukung proses digitalisasi Lembaga Perkreditan Desa di Bali.</p>
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <p>Seiring perkembangan teknologi, LPD sebagai lembaga keuangan milik desa adat perlu bertransformasi digital agar tetap relevan dan dipercaya masyarakat. Kami menyediakan solusi website modern yang membantu LPD menjadi lebih terbuka, transparan, dan mudah diakses oleh krama desa maupun calon nasabah.</p>
-        <p>Tim kami terdiri dari profesional teknologi yang paham akan kearifan lokal Bali serta pentingnya menjaga identitas dan kepercayaan publik terhadap LPD.</p>
-        <p>Melalui platform ini, kami berharap dapat menjadi mitra strategis LPD di seluruh Bali untuk memasuki era digital secara bertahap dan bijak.</p>
-      </div>
-    </div>
-  </main>
-
-  <footer class="bg-dark text-white text-center py-4">
-    <div class="container">
-      <small>&copy; 2025 LPD Digital. Website oleh <a href="https://cumaweb.com" class="text-warning text-decoration-none">CumaWeb</a>.</small>
-    </div>
+  <footer class="bg-gray-900 text-gray-300 text-center py-6 text-sm">
+    &copy; 2025 LPD DIGITAL. Semua Hak Dilindungi. | Dibuat dengan ❤️ untuk LPD Bali
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/assets/js/main.js"></script>
 </body>
 </html>
