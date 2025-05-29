@@ -3,26 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontak - LPD DIGITAL</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta name="description" content="LPD DIGITAL adalah penyedia jasa pembuatan website profesional untuk LPD di Bali.">
+  <meta name="keywords" content="LPD, Website LPD, Jasa Website Bali, Lembaga Perkreditan Desa, Digitalisasi LPD">
+  <meta name="author" content="LPD DIGITAL">
+  <meta property="og:title" content="LPD DIGITAL - Solusi Website untuk LPD di Bali">
+  <meta property="og:description" content="Tingkatkan citra dan pelayanan LPD Anda dengan website profesional dari LPD DIGITAL.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lpddigital.id/layanan.html">
+  <meta property="og:image" content="https://lpddigital.id/thumbnail.jpg">
+  <link rel="canonical" href="https://lpddigital.id/layanan.html">
+  <title>Layanan - LPD DIGITAL</title>
   <link rel="stylesheet" href="src/output.css">
-  <style>body { font-family: 'Inter', sans-serif; }</style>
 </head>
 <body class="bg-white text-gray-800 scroll-smooth">
   <header class="fixed top-0 w-full bg-white shadow z-50">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="text-2xl font-bold text-[#0a3d62]">LPD DIGITAL</div>
-      <nav class="space-x-6 hidden md:flex">
-        <a href="index.html" class="hover:text-[#2ecc71]">Beranda</a>
-        <a href="tentang.html" class="hover:text-[#2ecc71]">Tentang Kami</a>
-        <a href="layanan.html" class="hover:text-[#2ecc71]">Layanan</a>
-        <a href="portofolio.html" class="hover:text-[#2ecc71]">Portofolio</a>
-        <a href="testimoni.html" class="hover:text-[#2ecc71]">Testimoni</a>
-        <a href="kontak.html" class="text-[#2ecc71] font-semibold">Kontak</a>
+      <a href="index.html" class="text-2xl font-bold text-[#0a3d62]">LPD DIGITAL</a>
+      <button id="menu-toggle" class="md:hidden text-[#0a3d62] focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+      <div id="nav-overlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40 md:hidden"></div>
+      <nav id="nav-menu" class="hidden md:flex md:space-x-6 absolute md:static top-full left-0 w-full md:w-auto bg-white md:bg-transparent z-50 flex-col md:flex-row items-start md:items-center text-left md:text-left border-t md:border-none px-6 py-8 md:p-0 space-y-4 md:space-y-0 text-lg leading-relaxed">
+        <a href="index.html" class="block hover:text-[#2ecc71]">Beranda</a>
+        <a href="tentang.html" class="block hover:text-[#2ecc71]">Tentang Kami</a>
+        <a href="layanan.html" class="block hover:text-[#2ecc71]">Layanan</a>
+        <a href="portofolio.html" class="block hover:text-[#2ecc71]">Portofolio</a>
+        <a href="testimoni.html" class="block hover:text-[#2ecc71]">Testimoni</a>
+        <a href="kontak.html" class="block hover:text-[#2ecc71]">Kontak</a>
+        <a href="kontak.html" class="block md:inline-block mt-2 md:mt-0 px-4 py-2 rounded-xl bg-[#f1c40f] text-black font-semibold hover:brightness-110 w-full md:w-auto text-center">Ajukan Gratis</a>
       </nav>
-      <a href="kontak.html" class="ml-4 px-4 py-2 rounded-xl bg-[#f1c40f] text-black font-semibold hover:brightness-110">Ajukan Gratis</a>
     </div>
   </header>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('nav-menu');
+    const overlay = document.getElementById('nav-overlay');
+    toggle.addEventListener('click', () => {
+      const show = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      overlay.classList.toggle('hidden');
+      document.body.style.overflow = show ? 'hidden' : '';
+    });
+    overlay.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      overlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+  </script>
 
   <section class="pt-24 pb-16 bg-[#0a3d62] text-white text-center">
     <div class="max-w-3xl mx-auto px-4">
