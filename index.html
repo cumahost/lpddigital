@@ -1,399 +1,137 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LPDDIGITAL - Solusi Digital untuk LPD Bali</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f9f9f7; /* Warm Neutral */
-            color: #333;
-        }
-        .nav-link {
-            @apply px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-300;
-        }
-        .nav-link-mobile {
-            @apply block px-4 py-3 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300;
-        }
-        .section-title {
-            @apply text-3xl font-bold text-center mb-4 text-blue-700;
-        }
-        .section-subtitle {
-            @apply text-center text-gray-600 mb-10 max-w-2xl mx-auto;
-        }
-        .card {
-            @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300;
-        }
-        .primary-button {
-            @apply bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-lg;
-        }
-        .secondary-button {
-            @apply bg-green-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-green-700 transition-colors duration-300 text-lg;
-        }
-        .hero-bg {
-            background: linear-gradient(rgba(230, 240, 255, 0.8), rgba(230, 240, 255, 0.8)), url('https://placehold.co/1920x1080/e0f0ff/3333FF?text=Latar+Belakang+Abstrak+Bali');
-            background-size: cover;
-            background-position: center;
-        }
-        .tab-button {
-            @apply px-6 py-3 font-medium text-gray-700 rounded-t-lg hover:bg-blue-100 focus:outline-none transition-colors;
-        }
-        .tab-button.active {
-            @apply bg-blue-600 text-white;
-        }
-        .tab-content {
-            @apply p-6 bg-white rounded-b-lg rounded-tr-lg shadow-md;
-        }
-        /* Simple CSS Icon for list items */
-        .custom-list-item::before {
-            content: '✓'; /* Unicode checkmark */
-            color: #22c55e; /* green-500 */
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-            margin-right: 0.5em;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LPD DIGITAL - Jasa Pembuatan Website Profesional untuk LPD di Bali">
+  <title>LPD DIGITAL - Solusi Digital untuk LPD Bali</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="src/output.css">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
 </head>
-<body class="antialiased">
-
-    <header id="header" class="bg-white/90 backdrop-blur-md shadow-md fixed w-full z-50 top-0">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0">
-                    <a href="#" class="text-3xl font-bold text-blue-600">LPDDIGITAL</a>
-                </div>
-                <nav class="hidden md:flex space-x-1">
-                    <a href="#beranda" class="nav-link">Beranda</a>
-                    <a href="#tentang-kami" class="nav-link">Tentang Kami</a>
-                    <a href="#layanan-kami" class="nav-link">Layanan Kami</a>
-                    <a href="#mengapa-kami" class="nav-link">Mengapa Kami</a>
-                    <a href="#kontak" class="nav-link">Kontak</a>
-                </nav>
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600 focus:outline-none">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                    </button>
-                </div>
-            </div>
+<body class="bg-white text-gray-800 scroll-smooth">
+  <!-- Navbar -->
+  <header class="fixed top-0 w-full bg-white shadow z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-[#0a3d62]">LPD DIGITAL</div>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#beranda" class="hover:text-[#2ecc71]">Beranda</a>
+        <a href="#tentang" class="hover:text-[#2ecc71]">Tentang Kami</a>
+        <div class="relative group">
+          <button class="hover:text-[#2ecc71]">Layanan</button>
+          <div class="absolute hidden group-hover:block bg-white shadow rounded mt-2 p-2 space-y-2">
+            <a href="#gratis" class="block hover:text-[#2ecc71]">Gratis</a>
+            <a href="#lite" class="block hover:text-[#2ecc71]">Lite</a>
+            <a href="#pro" class="block hover:text-[#2ecc71]">Pro</a>
+          </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
-            <a href="#beranda" class="nav-link-mobile">Beranda</a>
-            <a href="#tentang-kami" class="nav-link-mobile">Tentang Kami</a>
-            <a href="#layanan-kami" class="nav-link-mobile">Layanan Kami</a>
-            <a href="#mengapa-kami" class="nav-link-mobile">Mengapa Kami</a>
-            <a href="#kontak" class="nav-link-mobile">Kontak</a>
+        <a href="#portofolio" class="hover:text-[#2ecc71]">Portofolio</a>
+        <a href="#testimoni" class="hover:text-[#2ecc71]">Testimoni</a>
+        <a href="#kontak" class="hover:text-[#2ecc71]">Kontak</a>
+      </nav>
+      <a href="#kontak" class="ml-4 px-4 py-2 rounded-xl bg-[#f1c40f] text-black font-semibold hover:brightness-110">Ajukan Gratis</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="beranda" class="pt-24 pb-16 bg-[#0a3d62] text-white text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Website Profesional untuk LPD di Bali</h1>
+      <p class="text-lg md:text-xl mb-6">Tingkatkan kepercayaan masyarakat & layanan digital LPD Anda bersama kami.</p>
+      <a href="#kontak" class="px-6 py-3 bg-[#f1c40f] text-black font-semibold rounded-xl hover:scale-105 inline-block">Ajukan Sekarang</a>
+    </div>
+  </section>
+
+  <!-- Tentang Kami -->
+  <section id="tentang" class="py-20 bg-gray-100">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-[#0a3d62] mb-6">Tentang Kami</h2>
+      <p class="text-lg text-gray-700">LPD DIGITAL adalah penyedia jasa pembuatan website yang fokus mendigitalkan LPD (Lembaga Perkreditan Desa) di Bali. Dengan pengalaman dan desain yang disesuaikan untuk kebutuhan lokal, kami membantu LPD tampil lebih modern, dipercaya, dan mudah diakses oleh masyarakat.</p>
+    </div>
+  </section>
+
+  <!-- Layanan -->
+  <section id="layanan" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-[#0a3d62] mb-12">Layanan Kami</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div id="gratis" class="border p-6 rounded-xl shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-[#0a3d62] mb-2">Paket Gratis</h3>
+          <p class="mb-4 text-gray-700">Website dasar di subdomain lpddigital.id, cocok untuk LPD yang baru memulai digitalisasi.</p>
+          <ul class="text-sm list-disc pl-5 text-gray-600">
+            <li>Subdomain gratis</li>
+            <li>Desain sederhana</li>
+            <li>1 halaman profil</li>
+          </ul>
         </div>
-    </header>
-
-    <section id="beranda" class="hero-bg pt-32 pb-20 min-h-screen flex items-center">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold text-blue-800 mb-6">LPDDIGITAL</h1>
-            <p class="text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto">
-                Menjadi mitra digital terdepan bagi Lembaga Perkreditan Desa (LPD) di Bali dalam menghadirkan layanan keuangan yang modern, transparan, dan mudah diakses oleh seluruh masyarakat.
-            </p>
-            <a href="#layanan-kami" class="primary-button">Jelajahi Layanan Kami</a>
+        <div id="lite" class="border p-6 rounded-xl shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-[#0a3d62] mb-2">Paket Lite</h3>
+          <p class="mb-4 text-gray-700">Paket ringan namun profesional, sudah menggunakan domain sendiri dan 3 halaman utama.</p>
+          <ul class="text-sm list-disc pl-5 text-gray-600">
+            <li>Domain LPD sendiri</li>
+            <li>Desain responsif</li>
+            <li>3 halaman (Profil, Produk, Kontak)</li>
+          </ul>
         </div>
-    </section>
-
-    <section id="tentang-kami" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title">Tentang LPDDIGITAL</h2>
-            <p class="section-subtitle">Kami hadir untuk memberdayakan LPD di Bali melalui transformasi digital, meningkatkan efisiensi, jangkauan, dan kepercayaan dalam melayani masyarakat.</p>
-
-            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-                <div>
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-4">Misi Kami</h3>
-                    <p class="text-gray-600 mb-6">LPDDIGITAL berkomitmen untuk mencapai tujuan-tujuan berikut demi kemajuan LPD di Bali:</p>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start"><span class="text-green-500 mr-3 text-xl">❖</span>Menyediakan platform digital (situs web) yang profesional, aman, dan informatif.</li>
-                        <li class="flex items-start"><span class="text-green-500 mr-3 text-xl">❖</span>Membantu LPD meningkatkan kredibilitas dan kepercayaan publik melalui kehadiran digital yang kuat.</li>
-                        <li class="flex items-start"><span class="text-green-500 mr-3 text-xl">❖</span>Mempermudah LPD dalam menyebarkan informasi produk, layanan, laporan, dan berita.</li>
-                        <li class="flex items-start"><span class="text-green-500 mr-3 text-xl">❖</span>Mendukung upaya digitalisasi LPD untuk efisiensi operasional dan jangkauan layanan yang lebih baik.</li>
-                        <li class="flex items-start"><span class="text-green-500 mr-3 text-xl">❖</span>Memberikan pendampingan dan dukungan teknis berkelanjutan untuk pengelolaan situs web LPD.</li>
-                    </ul>
-                </div>
-                <div>
-                    <img src="https://placehold.co/600x400/d1e0ff/3333FF?text=Tim+LPDDIGITAL+Berkolaborasi" alt="Tim LPDDIGITAL" class="rounded-lg shadow-xl w-full h-auto object-cover">
-                </div>
-            </div>
-
-            <div>
-                <h3 class="text-2xl font-semibold text-blue-700 mb-6 text-center">Nilai-Nilai Inti Kami</h3>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-                    <div class="card text-center">
-                        <div class="text-4xl text-blue-600 mb-3">🏆</div>
-                        <h4 class="font-semibold text-lg mb-1">Profesionalisme</h4>
-                        <p class="text-sm text-gray-600">Layanan dan produk kualitas terbaik.</p>
-                    </div>
-                    <div class="card text-center">
-                        <div class="text-4xl text-blue-600 mb-3">💡</div>
-                        <h4 class="font-semibold text-lg mb-1">Inovasi</h4>
-                        <p class="text-sm text-gray-600">Solusi digital terkini dan relevan.</p>
-                    </div>
-                    <div class="card text-center">
-                        <div class="text-4xl text-blue-600 mb-3">🤝</div>
-                        <h4 class="font-semibold text-lg mb-1">Kemitraan</h4>
-                        <p class="text-sm text-gray-600">Kerjasama erat dan saling menguntungkan.</p>
-                    </div>
-                    <div class="card text-center">
-                        <div class="text-4xl text-blue-600 mb-3">🛡️</div>
-                        <h4 class="font-semibold text-lg mb-1">Kepercayaan</h4>
-                        <p class="text-sm text-gray-600">Menjaga integritas dan keamanan data.</p>
-                    </div>
-                    <div class="card text-center">
-                        <div class="text-4xl text-blue-600 mb-3">🚀</div>
-                        <h4 class="font-semibold text-lg mb-1">Pemberdayaan</h4>
-                        <p class="text-sm text-gray-600">Mendorong kemandirian LPD.</p>
-                    </div>
-                </div>
-            </div>
+        <div id="pro" class="border p-6 rounded-xl shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-[#0a3d62] mb-2">Paket Pro</h3>
+          <p class="mb-4 text-gray-700">Solusi digital lengkap untuk LPD mapan yang ingin terintegrasi dengan layanan modern.</p>
+          <ul class="text-sm list-disc pl-5 text-gray-600">
+            <li>Domain LPD sendiri</li>
+            <li>Desain eksklusif & SEO</li>
+            <li>Form online, WhatsApp, Galeri</li>
+          </ul>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="layanan-kami" class="py-20">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title">Layanan Unggulan Kami</h2>
-            <p class="section-subtitle">Kami menyediakan beragam solusi digital yang dirancang khusus untuk memenuhi kebutuhan LPD di era modern, membantu Anda melayani nasabah dengan lebih baik.</p>
-
-            <div id="layananTabs" class="mb-8 flex flex-wrap justify-center border-b border-gray-200">
-                <button class="tab-button active" data-tab="web">Pengembangan Web</button>
-                <button class="tab-button" data-tab="seo">SEO Dasar</button>
-                <button class="tab-button" data-tab="pelatihan">Pelatihan</button>
-                <button class="tab-button" data-tab="dukungan">Dukungan Teknis</button>
-                <button class="tab-button" data-tab="konsultasi">Konsultasi</button>
-            </div>
-
-            <div id="layananTabContent">
-                <div id="webContent" class="tab-content">
-                    <h3 class="text-xl font-semibold text-blue-700 mb-3">Pengembangan Situs Web Profesional LPD</h3>
-                    <p class="text-gray-600 mb-4">Kami merancang dan membangun situs web yang tidak hanya menarik secara visual tetapi juga fungsional, aman, dan mudah diakses di berbagai perangkat.</p>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 class="font-semibold text-lg text-gray-800 mb-2">Fitur Utama:</h4>
-                            <ul class="space-y-2 text-gray-600">
-                                <li class="custom-list-item">Desain modern, responsif, dan sesuai identitas LPD.</li>
-                                <li class="custom-list-item">Optimal di berbagai perangkat (desktop, tablet, mobile).</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-lg text-gray-800 mb-2">Fitur Standar Termasuk:</h4>
-                            <ul class="space-y-2 text-gray-600">
-                                <li class="custom-list-item">Halaman Tentang Kami, Produk & Layanan (Simpanan, Kredit, dll.).</li>
-                                <li class="custom-list-item">Berita/Artikel, Galeri Kegiatan, Kontak.</li>
-                                <li class="custom-list-item">Informasi Struktur Organisasi.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="mt-6">
-                        <h4 class="font-semibold text-lg text-gray-800 mb-2">Fitur Opsional (dapat disesuaikan):</h4>
-                         <ul class="space-y-2 text-gray-600">
-                            <li class="custom-list-item">Kalkulator simulasi kredit/simpanan.</li>
-                            <li class="custom-list-item">Formulir online (pendaftaran, pengajuan).</li>
-                            <li class="custom-list-item">Integrasi media sosial.</li>
-                            <li class="custom-list-item">Laporan keuangan (yang bersifat publik).</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div id="seoContent" class="tab-content hidden">
-                    <h3 class="text-xl font-semibold text-blue-700 mb-3">Optimalisasi Mesin Pencari (SEO Dasar)</h3>
-                    <p class="text-gray-600">Membantu situs web LPD Anda lebih mudah ditemukan di mesin pencari seperti Google, meningkatkan visibilitas dan jangkauan kepada calon nasabah dan masyarakat.</p>
-                </div>
-
-                <div id="pelatihanContent" class="tab-content hidden">
-                    <h3 class="text-xl font-semibold text-blue-700 mb-3">Pelatihan Pengelolaan Konten Situs Web</h3>
-                    <p class="text-gray-600">Memberikan bekal pengetahuan dan keterampilan kepada staf LPD untuk dapat mengelola dan memperbarui konten situs web secara mandiri, memastikan informasi selalu relevan dan terkini.</p>
-                </div>
-
-                <div id="dukunganContent" class="tab-content hidden">
-                    <h3 class="text-xl font-semibold text-blue-700 mb-3">Dukungan Teknis dan Pemeliharaan</h3>
-                    <p class="text-gray-600">Layanan purna jual kami memastikan situs web LPD Anda berjalan lancar, aman, dan selalu update. Kami siap membantu mengatasi kendala teknis yang mungkin timbul.</p>
-                </div>
-
-                <div id="konsultasiContent" class="tab-content hidden">
-                    <h3 class="text-xl font-semibold text-blue-700 mb-3">Konsultasi Digitalisasi LPD</h3>
-                    <p class="text-gray-600">Kami memberikan masukan dan panduan strategis terkait langkah-langkah digitalisasi lainnya yang dapat diadopsi LPD untuk meningkatkan efisiensi dan daya saing.</p>
-                </div>
-            </div>
+  <!-- Portofolio -->
+  <section id="portofolio" class="py-20 bg-gray-100">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-[#0a3d62] mb-12">Portofolio</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl shadow p-4">
+          <div class="h-40 bg-gray-200 rounded mb-4"></div>
+          <h3 class="text-lg font-semibold text-[#0a3d62]">LPD Contoh A</h3>
+          <p class="text-sm text-gray-600">Website profil modern, mobile friendly, dan informatif.</p>
         </div>
-    </section>
-
-    <section id="mengapa-kami" class="py-20 bg-blue-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title">Mengapa Memilih LPDDIGITAL?</h2>
-            <p class="section-subtitle">Kami bukan hanya penyedia layanan digital, tapi mitra strategis yang memahami betul ekosistem LPD di Bali. Keunggulan kami adalah kunci sukses digitalisasi LPD Anda.</p>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card">
-                    <div class="text-3xl text-green-500 mb-3">🎯</div>
-                    <h3 class="text-xl font-semibold mb-2">Fokus pada LPD</h3>
-                    <p class="text-gray-600">Kami memahami kebutuhan dan karakteristik unik LPD di Bali.</p>
-                </div>
-                <div class="card">
-                    <div class="text-3xl text-green-500 mb-3">🧩</div>
-                    <h3 class="text-xl font-semibold mb-2">Solusi Terintegrasi</h3>
-                    <p class="text-gray-600">Tidak hanya pembuatan situs web, tetapi juga pendampingan dan dukungan berkelanjutan.</p>
-                </div>
-                <div class="card">
-                    <div class="text-3xl text-green-500 mb-3">🎨</div>
-                    <h3 class="text-xl font-semibold mb-2">Desain Profesional</h3>
-                    <p class="text-gray-600">Tampilan situs web yang mencerminkan kredibilitas LPD.</p>
-                </div>
-                <div class="card">
-                    <div class="text-3xl text-green-500 mb-3">⚙️</div>
-                    <h3 class="text-xl font-semibold mb-2">Mudah Dikelola</h3>
-                    <p class="text-gray-600">Sistem manajemen konten yang intuitif bagi pengguna.</p>
-                </div>
-                <div class="card">
-                    <div class="text-3xl text-green-500 mb-3">💰</div>
-                    <h3 class="text-xl font-semibold mb-2">Harga Kompetitif</h3>
-                    <p class="text-gray-600">Paket layanan yang disesuaikan dengan kemampuan LPD.</p>
-                </div>
-                <div class="card">
-                    <div class="text-3xl text-green-500 mb-3">🤝</div>
-                    <h3 class="text-xl font-semibold mb-2">Dukungan Lokal</h3>
-                    <p class="text-gray-600">Tim yang siap membantu dan memahami konteks budaya Bali.</p>
-                </div>
-            </div>
+        <div class="bg-white rounded-xl shadow p-4">
+          <div class="h-40 bg-gray-200 rounded mb-4"></div>
+          <h3 class="text-lg font-semibold text-[#0a3d62]">LPD Contoh B</h3>
+          <p class="text-sm text-gray-600">Fitur form pinjaman online, produk lengkap, dan desain segar.</p>
         </div>
-    </section>
-    
-    <section id="target-ajakan" class="py-20 bg-green-600 text-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold mb-4">Untuk Siapa Layanan Ini?</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">Layanan LPDDIGITAL ditujukan untuk Lembaga Perkreditan Desa (LPD) di seluruh wilayah Bali yang ingin meningkatkan kualitas layanan dan jangkauannya melalui platform digital.</p>
-            <h3 class="text-4xl font-bold mb-6">Mari Bersama Membangun LPD yang Lebih Maju dan Terhubung Secara Digital!</h3>
-            <a href="#kontak" class="bg-white text-green-700 font-semibold px-10 py-4 rounded-lg hover:bg-gray-100 transition-colors duration-300 text-xl">Hubungi Kami Sekarang</a>
+        <div class="bg-white rounded-xl shadow p-4">
+          <div class="h-40 bg-gray-200 rounded mb-4"></div>
+          <h3 class="text-lg font-semibold text-[#0a3d62]">LPD Contoh C</h3>
+          <p class="text-sm text-gray-600">Integrasi WhatsApp, peta lokasi, dan testimonial nasabah.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="kontak" class="py-20">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title">Hubungi Kami</h2>
-            <p class="section-subtitle">Siap untuk membawa LPD Anda ke level digital berikutnya? Jangan ragu untuk menghubungi kami untuk konsultasi dan informasi lebih lanjut.</p>
-            <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-xl">
-                <div class="space-y-6">
-                    <div>
-                        <h3 class="text-lg font-semibold text-blue-700">LPDDIGITAL</h3>
-                        <p class="text-gray-600 mt-1">Kontak Anda:</p>
-                        <ul class="mt-2 space-y-1 text-gray-700">
-                            <li><strong>Email:</strong> [Email Anda di Sini]</li>
-                            <li><strong>Telepon:</strong> [Nomor Telepon Anda di Sini]</li>
-                            <li><strong>Alamat:</strong> [Alamat Anda di Sini, jika ada]</li>
-                        </ul>
-                    </div>
-                     <div class="pt-6">
-                        <p class="text-center text-gray-500">Atau, isi formulir di bawah ini (Fungsionalitas formulir memerlukan backend):</p>
-                        <form class="mt-4 space-y-4">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
-                                <input type="text" name="name" id="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Nama Anda">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                                <input type="email" name="email" id="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="email@anda.com">
-                            </div>
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-gray-700">Pesan</label>
-                                <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Pesan Anda"></textarea>
-                            </div>
-                            <div>
-                                <button type="submit" class="w-full primary-button py-2.5">Kirim Pesan</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Testimoni -->
+  <section id="testimoni" class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-[#0a3d62] mb-12">Testimoni</h2>
+      <blockquote class="italic text-gray-700">"Sejak punya website dari LPD DIGITAL, nasabah lebih mudah cari info dan komunikasi. Sangat membantu pelayanan kami." <br><span class="mt-2 block font-semibold text-[#2ecc71]">— I Gusti Agung, LPD Desa Adat Tegal</span></blockquote>
+    </div>
+  </section>
 
-    <footer class="bg-gray-800 text-gray-300 py-10">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; <span id="currentYear"></span> LPDDIGITAL. Semua Hak Dilindungi.</p>
-            <p class="text-sm mt-1">Dirancang untuk memberdayakan LPD Bali.</p>
-        </div>
-    </footer>
+  <!-- Kontak -->
+  <section id="kontak" class="py-20 bg-[#0a3d62] text-white">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Kontak Kami</h2>
+      <p class="mb-6">Siap mulai? Konsultasi gratis melalui WhatsApp, atau kirim pertanyaan melalui form di bawah ini.</p>
+      <a href="https://wa.me/628113964747" target="_blank" class="inline-block bg-[#f1c40f] text-black px-6 py-3 rounded-xl font-semibold hover:brightness-110">Konsultasi via WhatsApp</a>
+    </div>
+  </section>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Offset for fixed header
-                    const headerOffset = document.getElementById('header').offsetHeight;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                }
-            });
-        });
-
-        // Layanan Tabs functionality
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const tabId = button.dataset.tab;
-
-                // Deactivate all buttons and hide all content
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.add('hidden'));
-
-                // Activate clicked button and show corresponding content
-                button.classList.add('active');
-                document.getElementById(tabId + 'Content').classList.remove('hidden');
-            });
-        });
-        
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Placeholder for form submission - actual submission requires a backend.
-        const contactForm = document.querySelector('#kontak form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                // In a real application, you would collect form data and send it to a server.
-                // For this static example, we'll just show an alert.
-                // IMPORTANT: Do not use alert() in final product as per instructions.
-                // This is just for local testing feedback if needed.
-                // Instead, you might show a message within the page.
-                const messageBox = document.createElement('div');
-                messageBox.textContent = 'Pesan Anda telah "dikirim" (simulasi). Terima kasih!';
-                messageBox.className = 'mt-4 p-3 bg-green-100 text-green-700 rounded-md text-center';
-                contactForm.parentNode.insertBefore(messageBox, contactForm.nextSibling);
-                contactForm.reset();
-                setTimeout(() => messageBox.remove(), 5000);
-            });
-        }
-
-    </script>
+  <footer class="bg-gray-900 text-gray-300 text-center py-6 text-sm">
+    &copy; 2025 LPD DIGITAL. Semua Hak Dilindungi. | Dibuat dengan ❤️ untuk LPD Bali
+  </footer>
 </body>
 </html>

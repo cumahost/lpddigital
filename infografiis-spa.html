@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LPDDIGITAL: Transformasi Digital LPD Bali - Peluang & Solusi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Visualization & Content Choices: 
+        1. Visi LPDDigital: Goal: Inform -> Method: Large headline text. -> Interaction: Static. -> Justification: Impactful opening. -> Library/Method: HTML/Tailwind.
+        2. Peluang Digital LPD (Hipotetis): Goal: Inform/Compare -> Method: 'Big Number' stat (misal, % LPD butuh upgrade), Donut Chart (Chart.js) 'Potensi Pertumbuhan Digital LPD' (misal, kategori potensi). -> Interaction: Chart tooltip. -> Justification: Kuantifikasi peluang pasar. -> Library/Method: HTML/Tailwind, Chart.js (Canvas). (Confirming NO SVG/Mermaid)
+        3. Layanan Utama - Pengembangan Web: Goal: Inform/Compare -> Method: Donut Chart (Chart.js) 'Fokus Fitur Website LPD' (misal, Kemanan, UX, Mobile). -> Interaction: Chart tooltip. -> Justification: Visualisasi prioritas fitur. -> Library/Method: Chart.js (Canvas). (Confirming NO SVG/Mermaid)
+        4. Layanan Utama - Lainnya (SEO, Pelatihan, dll.): Goal: Inform -> Method: Cards with Unicode icons and text. -> Interaction: Static/Hover. -> Justification: Ringkas dan jelas. -> Library/Method: HTML/Tailwind. (Confirming NO SVG/Mermaid)
+        5. Mengapa LPDDIGITAL (Keunggulan): Goal: Inform/Compare -> Method: Horizontal Bar Chart (Chart.js) 'Area Dampak Positif Layanan' (misal, Efisiensi, Jangkauan - skor hipotetis). Atau list dengan ikon. -> Interaction: Chart tooltip. -> Justification: Menunjukkan nilai konkret. -> Library/Method: Chart.js (Canvas) atau HTML/Tailwind. (Confirming NO SVG/Mermaid)
+        6. Nilai Inti: Goal: Inform/Organize -> Method: Grid of cards with Unicode icons. -> Interaction: Static/Hover. -> Justification: Mudah dicerna. -> Library/Method: HTML/Tailwind. (Confirming NO SVG/Mermaid)
+        7. Proses Kolaborasi: Goal: Organize -> Method: Simple flowchart using HTML/CSS bordered boxes and arrows (Unicode or CSS borders). -> Interaction: Static. -> Justification: Transparansi proses. -> Library/Method: HTML/Tailwind. (Confirming NO SVG/Mermaid)
+        8. Target Klien & CTA: Goal: Inform/Persuade -> Method: Text. -> Interaction: Static. -> Justification: Penutup yang jelas. -> Library/Method: HTML/Tailwind.
+    -->
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #333333; }
+        .chart-container { position: relative; width: 100%; max-width: 450px; margin-left: auto; margin-right: auto; height: 300px; max-height: 350px; }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+        .stat-number { font-size: 3rem; font-weight: 700; color: #0077B6; }
+        .section-bg-blue { background-color: #E0F7FA; } /* Light Cyan/Blue */
+        .section-bg-gold-light { background-color: #FFF8E1; } /* Light Gold/Yellow */
+        .card-lpd { background-color: white; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); padding: 1.5rem; transition: all 0.3s ease-in-out; }
+        .card-lpd:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        .primary-text-color { color: #0077B6; } /* Brilliant Blue */
+        .accent-text-color { color: #FFB703; } /* Energetic Gold */
+        .flowchart-step { border: 2px solid #00B4D8; padding: 1rem; border-radius: 0.5rem; text-align: center; background-color: white; margin-bottom:1rem; }
+        .flowchart-arrow { font-size: 2rem; color: #0077B6; text-align:center; margin-bottom:1rem; }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <header class="bg-[#0077B6] text-white py-6 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold">LPDDIGITAL: Mendorong Transformasi Digital LPD di Bali</h1>
+            <p class="mt-2 text-lg opacity-90">Peluang dan Solusi untuk LPD yang Lebih Maju dan Terhubung</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="intro" class="py-12 md:py-16 text-center bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold primary-text-color mb-4">Visi LPDDIGITAL</h2>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto text-gray-700">
+                    "Menjadi mitra digital terdepan bagi Lembaga Perkreditan Desa (LPD) di Bali dalam menghadirkan layanan keuangan yang modern, transparan, dan mudah diakses oleh seluruh masyarakat."
+                </p>
+            </div>
+        </section>
+
+        <section id="peluang" class="py-12 md:py-16 section-bg-blue">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold primary-text-color text-center mb-10">Peluang & Tantangan Digitalisasi LPD di Bali</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="text-center md:text-left">
+                        <p class="text-gray-700 text-lg mb-4">Pulau Bali, dengan lebih dari 1.400 LPD (data BKS LPD per Oktober 2024, sedikit disesuaikan untuk konteks), memiliki potensi besar untuk transformasi digital. Namun, banyak LPD masih menghadapi tantangan dalam adopsi teknologi.</p>
+                        <div class="my-8 p-6 bg-white rounded-lg shadow-md">
+                            <p class="stat-number">70%+</p>
+                            <p class="text-xl text-gray-600 font-semibold">LPD di Bali Berpotensi Meningkatkan Layanan Melalui Digitalisasi (Estimasi Hipotetis)</p>
+                            <p class="text-sm text-gray-500 mt-2">(Sumber: Analisis internal LPDDIGITAL berdasarkan tren umum, data ini adalah ilustrasi)</p>
+                        </div>
+                        <p class="text-gray-700 text-lg">Digitalisasi bukan hanya tentang teknologi, tetapi tentang meningkatkan efisiensi, jangkauan layanan, transparansi, dan kepercayaan nasabah.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold primary-text-color mb-4 text-center">Potensi Pertumbuhan Digital LPD (Ilustrasi)</h3>
+                        <div class="chart-container bg-white p-4 rounded-lg shadow-md">
+                            <canvas id="potensiLPDChart"></canvas>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2 text-center">Grafik ini adalah ilustrasi untuk menunjukkan area potensi, bukan data survei aktual.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solusi" class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold primary-text-color text-center mb-10">Solusi Komprehensif dari LPDDIGITAL</h2>
+                <p class="text-lg text-gray-700 text-center max-w-3xl mx-auto mb-12">LPDDIGITAL hadir dengan rangkaian layanan yang dirancang khusus untuk menjawab kebutuhan digital LPD di Bali.</p>
+                
+                <div class="mb-12 card-lpd">
+                    <h3 class="text-2xl font-semibold primary-text-color mb-4">⭐ Pengembangan Situs Web Profesional LPD</h3>
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <p class="text-gray-700 mb-3">Situs web yang modern, responsif, dan informatif adalah wajah digital LPD Anda. Kami fokus pada:</p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                <li>Desain yang menarik dan sesuai identitas LPD.</li>
+                                <li>Pengalaman pengguna (UX) yang optimal di semua perangkat.</li>
+                                <li>Keamanan data sebagai prioritas utama.</li>
+                                <li>Informasi produk dan layanan yang jelas dan mudah diakses.</li>
+                            </ul>
+                            <p class="text-gray-700 mt-3"><strong>Fitur standar:</strong> Tentang Kami, Produk & Layanan, Berita, Galeri, Kontak, Struktur Organisasi.</p>
+                            <p class="text-gray-700 mt-1"><strong>Fitur opsional:</strong> Kalkulator simulasi, formulir online, integrasi medsos, laporan publik.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold primary-text-color mb-3 text-center">Fokus Fitur Pengembangan Website (Ilustrasi)</h4>
+                            <div class="chart-container bg-gray-50 p-4 rounded-lg shadow-inner">
+                                <canvas id="fiturWebChart"></canvas>
+                            </div>
+                             <p class="text-sm text-gray-500 mt-2 text-center">Persentase ilustratif untuk menunjukkan area fokus.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-semibold primary-text-color text-center my-10">Layanan Pendukung Lainnya</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="card-lpd">
+                        <span class="text-3xl accent-text-color">🔍</span>
+                        <h4 class="text-xl font-semibold primary-text-color mt-2 mb-1">Optimalisasi SEO Dasar</h4>
+                        <p class="text-gray-600 text-sm">Meningkatkan visibilitas situs LPD Anda di mesin pencari seperti Google.</p>
+                    </div>
+                    <div class="card-lpd">
+                        <span class="text-3xl accent-text-color">🎓</span>
+                        <h4 class="text-xl font-semibold primary-text-color mt-2 mb-1">Pelatihan Pengelolaan Web</h4>
+                        <p class="text-gray-600 text-sm">Memberdayakan staf LPD untuk mengelola konten situs secara mandiri.</p>
+                    </div>
+                    <div class="card-lpd">
+                        <span class="text-3xl accent-text-color">🛠️</span>
+                        <h4 class="text-xl font-semibold primary-text-color mt-2 mb-1">Dukungan Teknis</h4>
+                        <p class="text-gray-600 text-sm">Layanan purna jual untuk memastikan situs web berjalan lancar dan aman.</p>
+                    </div>
+                    <div class="card-lpd">
+                        <span class="text-3xl accent-text-color">💬</span>
+                        <h4 class="text-xl font-semibold primary-text-color mt-2 mb-1">Konsultasi Digitalisasi</h4>
+                        <p class="text-gray-600 text-sm">Panduan strategis untuk langkah digitalisasi LPD yang lebih luas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mengapa" class="py-12 md:py-16 section-bg-gold-light">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold primary-text-color text-center mb-10">Mengapa Memilih LPDDIGITAL?</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <ul class="space-y-4">
+                            {[
+                                { icon: '🎯', title: 'Fokus pada LPD', text: 'Pemahaman mendalam akan kebutuhan unik LPD di Bali.' },
+                                { icon: '🧩', title: 'Solusi Terintegrasi', text: 'Layanan menyeluruh dari pengembangan hingga dukungan.' },
+                                { icon: '🎨', title: 'Desain Profesional', text: 'Mencerminkan kredibilitas dan modernitas LPD.' },
+                                { icon: '⚙️', title: 'Mudah Dikelola', text: 'Platform intuitif untuk kemandirian pengelolaan LPD.' },
+                                { icon: '💰', title: 'Harga Kompetitif', text: 'Paket layanan yang terjangkau dan sesuai anggaran LPD.' },
+                                { icon: '🤝', title: 'Dukungan Lokal', text: 'Tim yang responsif dan memahami konteks budaya Bali.' }
+                            ].map(item => `
+                                <li class="flex items-start card-lpd p-4">
+                                    <span class="text-3xl accent-text-color mr-4">${item.icon}</span>
+                                    <div>
+                                        <h4 class="text-xl font-semibold primary-text-color">${item.title}</h4>
+                                        <p class="text-gray-700">${item.text}</p>
+                                    </div>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold primary-text-color mb-4 text-center">Area Dampak Positif Layanan LPDDIGITAL (Ilustrasi)</h3>
+                        <div class="chart-container bg-white p-4 rounded-lg shadow-md">
+                            <canvas id="dampakLayananChart"></canvas>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2 text-center">Skor ilustratif (0-10) menunjukkan potensi dampak positif.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="nilai-proses" class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold primary-text-color text-center mb-10">Nilai Inti & Proses Kolaborasi Kami</h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold primary-text-color mb-6">Nilai-Nilai Inti LPDDIGITAL</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {[
+                                {icon: '🏆', name: 'Profesionalisme'}, {icon: '💡', name: 'Inovasi'},
+                                {icon: '🤝', name: 'Kemitraan'}, {icon: '🛡️', name: 'Kepercayaan'},
+                                {icon: '🚀', name: 'Pemberdayaan'}
+                            ].map(val => `
+                                <div class="card-lpd text-center p-4">
+                                    <span class="text-4xl">${val.icon}</span>
+                                    <p class="mt-2 font-semibold text-lg primary-text-color">${val.name}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold primary-text-color mb-6">Langkah Mudah Digitalisasi Bersama Kami</h3>
+                        <div class="space-y-0">
+                            <div class="flowchart-step">1. Konsultasi & Analisis Kebutuhan</div>
+                            <div class="flowchart-arrow">▼</div>
+                            <div class="flowchart-step">2. Perancangan & Pengembangan Solusi Digital</div>
+                            <div class="flowchart-arrow">▼</div>
+                            <div class="flowchart-step">3. Implementasi & Pelatihan Staf LPD</div>
+                            <div class="flowchart-arrow">▼</div>
+                            <div class="flowchart-step">4. Peluncuran & Dukungan Berkelanjutan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="py-16 md:py-20 bg-[#0077B6] text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Siap Membawa LPD Anda ke Era Digital?</h2>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">LPDDIGITAL adalah mitra tepercaya untuk LPD di seluruh Bali yang ingin meningkatkan kualitas layanan dan jangkauan melalui platform digital.</p>
+                <p class="text-2xl font-semibold mb-6 accent-text-color">Mari Bersama Membangun LPD yang Lebih Maju dan Terhubung Secara Digital!</p>
+                <a href="mailto:kontak@lpddigital.com?subject=Permintaan Informasi LPDDIGITAL" class="inline-block bg-[#FFB703] text-[#003E74] font-bold text-lg px-10 py-4 rounded-lg shadow-md hover:bg-opacity-90 transition-colors duration-300">
+                    Hubungi Kami Sekarang (kontak@lpddigital.com)
+                </a>
+                 <p class="mt-4 text-sm opacity-80">(Alamat email dan kontak dapat disesuaikan)</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-8 bg-gray-800 text-gray-300">
+        <p>&copy; <span id="currentYear"></span> LPDDIGITAL. Hak Cipta Dilindungi.</p>
+        <p class="text-sm">Dirancang khusus untuk pemberdayaan LPD di Bali.</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        function wrapLabels(label, maxWidth) {
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            lines.push(currentLine.trim());
+            return lines.filter(line => line.length > 0);
+        }
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            }
+            return label;
+        };
+
+        const chartOptionsBase = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'bottom', labels: { font: { size: 10 } } },
+                tooltip: { callbacks: { title: tooltipTitleCallback } }
+            }
+        };
+        
+        const chartColors = ['#0077B6', '#00B4D8', '#ADE8F4', '#FFB703', '#FD9E02'];
+
+        // Data dan Konfigurasi Chart
+        const potensiLPDData = {
+            labels: ['Peningkatan Efisiensi Operasional', 'Perluasan Jangkauan Nasabah', 'Peningkatan Transparansi Keuangan', 'Penguatan Kepercayaan Publik'].map(l => wrapLabels(l, 16)),
+            datasets: [{
+                label: 'Potensi Pertumbuhan Digital LPD (Ilustrasi)',
+                data: [35, 30, 20, 15], // Hipotetis
+                backgroundColor: chartColors.slice(0,4),
+                hoverOffset: 4
+            }]
+        };
+        new Chart(document.getElementById('potensiLPDChart'), { type: 'doughnut', data: potensiLPDData, options: chartOptionsBase });
+
+        const fiturWebData = {
+            labels: ['Pengalaman Pengguna (UX)', 'Keamanan & Privasi Data', 'Aksesibilitas Informasi', 'Responsif Mobile', 'Kemudahan Pengelolaan Konten'].map(l => wrapLabels(l, 16)),
+            datasets: [{
+                label: 'Fokus Fitur Website (Ilustrasi)',
+                data: [30, 25, 20, 15, 10], // Hipotetis
+                backgroundColor: chartColors,
+                hoverOffset: 4
+            }]
+        };
+        new Chart(document.getElementById('fiturWebChart'), { type: 'doughnut', data: fiturWebData, options: chartOptionsBase });
+
+        const dampakLayananData = {
+            labels: ['Peningkatan Efisiensi', 'Perluasan Jangkauan', 'Penguatan Kepercayaan', 'Kemandirian Digital LPD', 'Kepuasan Nasabah'].map(l => wrapLabels(l, 16)),
+            datasets: [{
+                label: 'Potensi Dampak Layanan (Skor 0-10, Ilustrasi)',
+                data: [8.5, 9.0, 8.0, 7.5, 8.8], // Hipotetis
+                backgroundColor: '#00B4D8',
+                borderColor: '#0077B6',
+                borderWidth: 1
+            }]
+        };
+        new Chart(document.getElementById('dampakLayananChart'), {
+            type: 'bar',
+            data: dampakLayananData,
+            options: { ...chartOptionsBase, indexAxis: 'y', scales: { x: { beginAtZero: true, max: 10 } } }
+        });
+
+    </script>
+</body>
+</html>
