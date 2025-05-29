@@ -3,10 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beranda - LPD DIGITAL</title>
+  <meta name="description" content="LPD DIGITAL adalah penyedia jasa pembuatan website profesional untuk LPD di Bali.">
+  <meta name="keywords" content="LPD, Website LPD, Jasa Website Bali, Lembaga Perkreditan Desa, Digitalisasi LPD">
+  <meta name="author" content="LPD DIGITAL">
+  <meta property="og:title" content="LPD DIGITAL - Solusi Website untuk LPD di Bali">
+  <meta property="og:description" content="Tingkatkan citra dan pelayanan LPD Anda dengan website profesional dari LPD DIGITAL.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lpddigital.id/index.html">
+  <meta property="og:image" content="https://lpddigital.id/thumbnail.jpg">
+  <link rel="canonical" href="https://lpddigital.id/index.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Beranda - LPD DIGITAL</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="stylesheet" href="src/output.css">
-  <style>body { font-family: 'Inter', sans-serif; }</style>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .fade-up { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+    .fade-up.show { opacity: 1; transform: translateY(0); }
+  </style>
 </head>
 <body class="bg-white text-gray-800 scroll-smooth">
   <!-- Navbar Responsive with Overlay & Better Styling -->
@@ -131,11 +147,32 @@
     </div>
   </section>
 
+    <!-- Section Tambahan: Statistik & Ajakan -->
+  <section class="py-20 bg-[#f4f7f6]">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold text-[#0a3d62] mb-6 fade-up">Kami Telah Membantu</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 fade-up">
+        <div>
+          <p class="text-4xl font-bold text-[#2ecc71]">12+</p>
+          <p class="text-gray-700">LPD Telah Go Digital</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-[#2ecc71]">3</p>
+          <p class="text-gray-700">Paket Layanan Fleksibel</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-[#2ecc71]">100%</p>
+          <p class="text-gray-700">Kepuasan Mitra</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Testimoni -->
   <section id="testimoni" class="py-20 bg-white">
     <div class="max-w-5xl mx-auto px-4 text-center">
       <h2 class="text-3xl font-bold text-[#0a3d62] mb-12">Testimoni</h2>
-      <blockquote class="italic text-gray-700">"Sejak punya website dari LPD DIGITAL, nasabah lebih mudah cari info dan komunikasi. Sangat membantu pelayanan kami." <br><span class="mt-2 block font-semibold text-[#2ecc71]">— I Gusti Agung, LPD Desa Adat Tegal</span></blockquote>
+      <blockquote class="italic text-gray-800">"Sejak punya website dari LPD DIGITAL, nasabah lebih mudah cari info dan komunikasi. Sangat membantu pelayanan kami." <br><span class="mt-2 block font-semibold text-[#2ecc71]">— I Gusti Agung, LPD Desa Adat Tegal</span></blockquote>
     </div>
   </section>
 
@@ -151,5 +188,20 @@
   <footer class="bg-gray-900 text-gray-300 text-center py-6 text-sm">
     &copy; 2025 LPD DIGITAL. Semua Hak Dilindungi. | Dibuat dengan ❤️ untuk LPD Bali
   </footer>
+    <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
