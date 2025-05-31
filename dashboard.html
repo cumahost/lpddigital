@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Pelanggan - LPD Digital</title>
+  <link rel="stylesheet" href="/src/output.css" />
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <header class="bg-white shadow p-4">
+    <div class="max-w-4xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-semibold">Dashboard Pelanggan</h1>
+      <button id="logout" class="text-red-600 hover:underline">Keluar</button>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto py-8 px-4">
+    <h2 class="text-2xl font-bold mb-4">Upload Konten Website</h2>
+    <form id="content-form" class="space-y-4">
+      <div>
+        <label class="block font-medium">Nama LPD</label>
+        <input type="text" id="nama_lpd" class="w-full border px-4 py-2 rounded-md" required>
+      </div>
+
+      <div>
+        <label class="block font-medium">Deskripsi Singkat</label>
+        <textarea id="deskripsi" class="w-full border px-4 py-2 rounded-md" rows="4" required></textarea>
+      </div>
+
+      <div>
+        <label class="block font-medium">Logo (PNG/JPG)</label>
+        <input type="file" id="logo" accept="image/*" class="w-full">
+      </div>
+
+      <div>
+        <label class="block font-medium">Gambar Pendukung</label>
+        <input type="file" id="gambar_pendukung" accept="image/*" multiple class="w-full">
+      </div>
+
+      <p id="status" class="text-sm text-gray-600"></p>
+
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Kirim Konten</button>
+    </form>
+  </main>
+
+  <script type="module">
+    import { supabase } from '/assets/js/supabaseClient.js';
+
+    const form = document.getElementById('content-form');
+    const status = document.getElementById('status');
+
+    // Auth check
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) window.location.href = '/login.html';
+
+    document.getElementById('logout').addEventListener('click', async () => {
+      await supabase.auth.signOut();
+      window.location.href = '/login.html';
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.textContent = 'Mengunggah konten...';
+
+      const nama = document.getElementById('nama_lpd').value;
+      const deskripsi = document.getElementById('deskripsi').value;
+      const logo = document.getElementById('logo').files[0];
+      const gambar = document.getElementById('gambar_pendukung').files;
+
+      // Upload logo
+      let logo_url = '';
+      if (logo) {
+        const { data, error } = await supabase.storage.from('konten').upload(`logo/${user.id}/${logo.name}`, logo, { upsert: true });
+        if (error) return status.textContent = 'Gagal upload logo';
+        logo_url = data.path;
+      }
+
+      // Upload gambar pendukung
+      const gambar_urls = [];
+      for (const file of gambar) {
+        const { data, error } = await supabase.storage.from('konten').upload(`gambar/${user.id}/${file.name}`, file, { upsert: true });
+        if (!error) gambar_urls.push(data.path);
+      }
+
+      // Simpan data ke table
+      const { error: insertError } = await supabase.from('konten_website').insert([
+        {
+          user_id: user.id,
+          nama_lpd: nama,
+          deskripsi: deskripsi,
+          logo_url: logo_url,
+          gambar_url: gambar_urls
+        }
+      ]);
+
+      if (insertError) {
+        status.textContent = 'Gagal menyimpan data.';
+      } else {
+        status.textContent = 'Konten berhasil dikirim!';
+      }
+    });
+  </script>
+</body>
+</html>
